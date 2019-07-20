@@ -1,0 +1,6 @@
+- name: Get list of Directory.
+  hosts: all
+  tasks:
+  - name: Create Directory
+    command: mkdir /home/from_Ansible
+

@@ -1,0 +1,29 @@
+---
+- name: Ansible playbook for httpd
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Install httpd
+    yum:
+      name: httpd
+      state: present
+    register: var_httpd
+
+  - name: debugging
+    debug: var=var_httpd
+
+  - name: print successfull installation
+    debug: msg='httpd installation is successfull'
+    when: var_httpd.rc == 0
+
+  - name: print failed
+    debug: msg='httpd installation failed'
+    when: var_httpd.rc != 0
+
+  - debug:
+      msg: "{{ var_httpd }}"
+
+
+  - name: printing when alredy Installed.
+    debug: msg='httpd is alredy installed'
+    when: (var_httpd.rc == 0) and (var_httpd.changed == false)

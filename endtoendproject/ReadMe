@@ -1,0 +1,11 @@
+heck Tomcat service on newly created machine.
+start tomcat service, if not started.
+  [ec2-user@ip-172-31-15-38 ~]$ sudo systemctl start tomcat
+  [ec2-user@ip-172-31-15-38 ~]$ sudo systemctl status tomcat
+                 or
+  [ec2-user@ip-172-31-15-38 ~]$ cd /usr/local/apache-tomcat-8.0.23/bin/
+  [ec2-user@ip-172-31-15-38 bin]$ bash startup.sh
+
+Check port 8080 in firewall rules.
+http://<PublicIP>:8080
+
